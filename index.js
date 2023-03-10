@@ -7,12 +7,12 @@ const users = [
   { name: "Eve", age: 20 },
 ];
 
-const over18Users = (arr) => {
+const over18Users = (users) => {
   const over18UsersArray = [];
 
-  arr.forEach((userObj) => {
-    if (userObj.age > 18) {
-      over18UsersArray.push(userObj);
+  users.forEach((user) => {
+    if (user.age > 18) {
+      over18UsersArray.push(user);
     }
   });
   return over18UsersArray;
@@ -57,20 +57,20 @@ const products = [
   },
 ];
 
-const findAverageRating = (arr) => {
+const averageRating = (products) => {
   const newArr = [];
 
-  arr.forEach((element) => {
+  products.forEach((product) => {
     let sum = 0;
 
-    element.reviews.forEach((item) => {
-      sum = sum + item.rating;
+    product.reviews.forEach((review) => {
+      sum = sum + review.rating;
     });
 
-    sum = sum / element.reviews.length;
+    sum = sum / product.reviews.length;
 
     newArr.push({
-      id: element.id,
+      id: product.id,
       rating: sum,
     });
   });
@@ -78,7 +78,7 @@ const findAverageRating = (arr) => {
   console.log(newArr);
 };
 
-findAverageRating(products);
+averageRating(products);
 
 //Task3
 const salesData = [
@@ -93,12 +93,12 @@ const salesData = [
   { month: "Март", sales: 4000 },
 ];
 
-const findSum = (arr) => {
+const findSum = (salesData) => {
   //  const newArr = [];
   let newObj = {};
 
-  arr.forEach((obj) => {
-    const { month, sales } = obj;
+  salesData.forEach((dataItem) => {
+    const { month, sales } = dataItem;
     if (newObj[month]) {
       newObj[month] += sales;
     } else {
