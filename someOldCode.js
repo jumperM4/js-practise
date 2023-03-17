@@ -165,3 +165,42 @@
 // };
 
 // console.log(getPrimes(10));
+
+Количество админов и юзеров
+Напиши пж функцию, которая принимает массив объектов пользователей и возвращает объект, содержащий количество пользователей с каждым уровнем доступа
+
+const users = [
+  { name: 'John Doe', accessLevel: 'admin' },
+  { name: 'Jane Smith', accessLevel: 'user' },
+  { name: 'Bob Johnson', accessLevel: 'user' },
+  { name: 'Alice Brown', accessLevel: 'admin' }
+];
+
+Сортировка по цене
+Напиши пж функцию, которая принимает массив объектов товаров и возвращает новый массив объектов товаров, отсортированный по возрастанию цены
+javascript
+
+const products = [
+  { name: 'Product 1', price: 30 },
+  { name: 'Product 2', price: 10 },
+  { name: 'Product 3', price: 20 }
+];
+
+Сортировка по алфавиту
+Напиши пж функцию, которая принимает массив объектов пользователей и возвращает новый массив объектов пользователей, отсортированный по имени в алфавитном порядке
+
+const users = [
+  { name: 'John Doe', email: 'johndoe@example.com' },
+  { name: 'Jane Smith', email: 'janesmith@example.com' },
+  { name: 'Bob Johnson', email: 'bobjohnson@example.com' }
+];
+
+Фильтр
+Напиши пж функцию, которая принимает массив объектов товаров и возвращает новый массив объектов товаров, у которых цена находится в диапазоне от minPrice до maxPrice
+
+const products = [
+  { name: 'Product 1', price: 10 },
+  { name: 'Product 2', price: 20 },
+  { name: 'Product 3', price: 30 },
+  { name: 'Product 4', price: 40 }
+];
