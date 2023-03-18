@@ -1,11 +1,22 @@
 // // // task 1
-// const users = [
-//   { name: "Alice", age: 22 },
-//   { name: "Bob", age: 17 },
-//   { name: "Charlie", age: 28 },
-//   { name: "David", age: 15 },
-//   { name: "Eve", age: 20 },
-// ];
+const users = [
+  { name: "Alice", age: 22 },
+  { name: "Bob", age: 17 },
+  { name: "Charlie", age: 28 },
+  { name: "David", age: 15 },
+  { name: "Eve", age: 20 },
+];
+
+const over18Users = (users) => {
+  const over18UsersArray = [];
+
+  users.filter((user) => {
+    if (user.age > 18) {
+      over18UsersArray.push(user);
+    }
+  });
+  return over18UsersArray;
+};
 
 // const over18Users = (users) => {
 //   const over18UsersArray = [];
@@ -18,7 +29,7 @@
 //   return over18UsersArray;
 // };
 
-// console.log(over18Users(users));
+console.log(over18Users(users));
 
 // //task2
 // const products = [
@@ -57,8 +68,8 @@
 //   },
 // ];
 
-// const averageRating = (products) => {
-//   const newArr = [];
+// const productsAverageRating = (products) => {
+//   const arrOfProductsWithAverageRating = [];
 
 //   products.forEach((product) => {
 //     let sum = 0;
@@ -69,16 +80,16 @@
 
 //     sum = sum / product.reviews.length;
 
-//     newArr.push({
+//     arrOfProductsWithAverageRating.push({
 //       id: product.id,
 //       rating: sum,
 //     });
 //   });
 
-//   console.log(newArr);
+//   console.log(arrOfProductsWithAverageRating);
 // };
 
-// averageRating(products);
+// productsAverageRating(products);
 
 // //Task3
 // const salesData = [
@@ -145,9 +156,7 @@
 // ];
 
 // const sortedObjectByPrice = (products) => {
-//   products.sort((a, b) => a.price - b.price);
-
-//   return products;
+//   return products.sort((a, b) => a.price - b.price);
 // };
 
 // console.log(sortedObjectByPrice(products));
@@ -189,26 +198,28 @@
 // };
 // console.log(sortedObjectByName1(users));
 
-//Task7
-const products = [
-  { name: "Product 1", price: 10 },
-  { name: "Product 2", price: 20 },
-  { name: "Product 3", price: 30 },
-  { name: "Product 4", price: 40 },
-];
+// //Task7
+// const products = [
+//   { name: "Product 1", price: 10 },
+//   { name: "Product 2", price: 20 },
+//   { name: "Product 3", price: 30 },
+//   { name: "Product 4", price: 40 },
+// ];
 
-const sortedByMinMaxPrice = (min, max, products) => {
-  const sortedArrOfProducts = [];
+// const sortedByMinMaxPrice = (min, max, products) => {
+//   const sortedArrOfProducts = [];
 
-  products.forEach((product) => {
-    if (product.hasOwnProperty("price")) {
-      if (product.price > min && product.price < max) {
-        sortedArrOfProducts.push(product);
-      }
-    }
-  });
+//   products.forEach((product) => {
+//     if (
+//       product.hasOwnProperty("price") &&
+//       product.price > min &&
+//       product.price < max
+//     ) {
+//       sortedArrOfProducts.push(product);
+//     }
+//   });
 
-  return sortedArrOfProducts;
-};
+//   return sortedArrOfProducts;
+// };
 
-console.log(sortedByMinMaxPrice(5, 41, products));
+// console.log(sortedByMinMaxPrice(11, 41, products));
