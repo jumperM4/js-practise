@@ -7,16 +7,7 @@ const users = [
   { name: "Eve", age: 20 },
 ];
 
-const over18Users = (users) => {
-  const over18UsersArray = [];
-
-  users.filter((user) => {
-    if (user.age > 18) {
-      over18UsersArray.push(user);
-    }
-  });
-  return over18UsersArray;
-};
+const over18Users = (users) => users.filter(user => user.age > 18);
 
 // const over18Users = (users) => {
 //   const over18UsersArray = [];
