@@ -1,112 +1,45 @@
-// // task 1
-const users = [
-  { name: "Alice", age: 22 },
-  { name: "Bob", age: 17 },
-  { name: "Charlie", age: 28 },
-  { name: "David", age: 15 },
-  { name: "Eve", age: 20 },
-];
+const button = document.getElementById("enter");
+const input = document.getElementById("userinput");
+const ul = document.querySelector("ul");
 
-const over18Users = (users) => {
-  const over18UsersArray = [];
+function getInputLength() {
+  return input.value.length;
+}
 
-  users.forEach((user) => {
-    if (user.age > 18) {
-      over18UsersArray.push(user);
-    }
-  });
-  return over18UsersArray;
-};
+function createListElement() {
+  const li = document.createElement("li");
+  li.className = "listItem";
+  li.appendChild(document.createTextNode(input.value));
+  li.addEventListener("click", () => li.classList.toggle("done"));
+  ul.appendChild(li);
+  input.value = "";
 
-console.log(over18Users(users));
+  const buttonDelete = document.createElement("button");
+  buttonDelete.innerText = "Delete";
+  buttonDelete.className = "delBtn";
+  buttonDelete.addEventListener("click", () => li.remove());
+  li.append(buttonDelete);
 
-//task2
-const products = [
-  {
-    id: 1,
-    name: "Product 1",
-    reviews: [
-      { rating: 4 },
-      { rating: 5 },
-      { rating: 3 },
-      { rating: 5 },
-      { rating: 4 },
-    ],
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    reviews: [
-      { rating: 2 },
-      { rating: 3 },
-      { rating: 4 },
-      { rating: 1 },
-      { rating: 2 },
-    ],
-  },
-  {
-    id: 3,
-    name: "Product 3",
-    reviews: [
-      { rating: 5 },
-      { rating: 5 },
-      { rating: 4 },
-      { rating: 5 },
-      { rating: 4 },
-    ],
-  },
-];
+  // function toggleDone() {
+  //   li.classList.toggle("done");
+  // }
 
-const averageRating = (products) => {
-  const newArr = [];
+  // function deleteItem() {
+  //   li.remove();
+  // }
+}
 
-  products.forEach((product) => {
-    let sum = 0;
+function addListItemAfterClick() {
+  if (getInputLength() > 0) {
+    createListElement();
+  }
+}
 
-    product.reviews.forEach((review) => {
-      sum = sum + review.rating;
-    });
+function addListItemAfterPress(event) {
+  if (getInputLength() > 0 && event.which === 13) {
+    createListElement();
+  }
+}
 
-    sum = sum / product.reviews.length;
-
-    newArr.push({
-      id: product.id,
-      rating: sum,
-    });
-  });
-
-  console.log(newArr);
-};
-
-averageRating(products);
-
-//Task3
-const salesData = [
-  { month: "Январь", sales: 1000 },
-  { month: "Февраль", sales: 2000 },
-  { month: "Март", sales: 3000 },
-  { month: "Январь", sales: 1500 },
-  { month: "Февраль", sales: 2500 },
-  { month: "Март", sales: 3500 },
-  { month: "Январь", sales: 2000 },
-  { month: "Февраль", sales: 3000 },
-  { month: "Март", sales: 4000 },
-];
-
-const findSum = (salesData) => {
-  //  const newArr = [];
-  let newObj = {};
-
-  salesData.forEach((dataItem) => {
-    const { month, sales } = dataItem;
-    if (newObj[month]) {
-      newObj[month] += sales;
-    } else {
-      newObj[month] = sales;
-    }
-  });
-
-  return Object.values(newObj);
-};
-
-console.log(findSum(salesData));
+button.addEventListener("click", addListItemAfterClick);
+input.addEventListener("keypress", addListItemAfterPress);
